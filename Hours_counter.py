@@ -1,7 +1,13 @@
 import openpyxl
-wb = openpyxl.load_workbook('24 - 30 October 2021.xlsx')
-Initials = []
-sheet = wb['Sun24October']
-for i in range(7,13):
-  print (i, sheet.cell(row=i, column=6).value)
-sheet['F7'].value
+wb = openpyxl.load_workbook('13 - 19 February 2022.xlsx')
+sheet = wb['Sun13February']
+
+initials = []
+
+for rowOfCellOb in sheet['F7':'O13']:
+  for each in rowOfCellOb:
+    initials.append(each.value)
+    print(initials)
+
+#Use RegEx to capture cell .value with length of 2,3,or 4 characters?
+#Could use function to say "if .value of cell contains str<=len(4)" then .append elif cell .value =/= azAZ ignore?
