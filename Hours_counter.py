@@ -1,6 +1,20 @@
-#Load workbook and sheet
+#Load workbook. Load the worksheet 'Staff Initials'
 import openpyxl
 wb = openpyxl.load_workbook('13 - 19 February 2022.xlsx')
+staff_initials = wb['Staff Initials']
+
+si = []
+d = []
+
+for rectangle in staff_initials['A2:A44']:
+  for cell in rectangle:
+    si.append(cell.value)
+print(si)
+
+for rectangle in staff_initials['D2:D44']:
+  for cell in rectangle:
+    d.append
+print(d)
 
 #Create empty list to insert values of cells
 initials = []
@@ -26,4 +40,22 @@ for i in initials:
     else:
         hours[i] = 1
 
-print(hours)
+
+for each in si:
+  if each in hours:
+    pass
+  else:
+    hours.update({each:0})
+
+a = hours.items()
+sorted_hours = sorted(a)
+
+print (sorted_hours)
+
+for rowNum in range(2, staff_initials.max_row + 1):
+  enter = staff_initials.cell(row=rowNum, column = 1).value
+  if enter in hours:
+    staff_initials.cell(row=rowNum, column=4).value = hours[enter]
+
+wb.save('updatedSched 13 - 19 Feb.xlsx')
+#Now want to take first column of "Staff Initials" worksheet, skip first row (it's a header) and match to "hours" keys, then write "hours" values in Column D.
