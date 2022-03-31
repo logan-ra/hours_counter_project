@@ -1,5 +1,6 @@
 #Load workbook. Load the worksheet 'Staff Initials'
 import openpyxl
+from openpyxl.styles import Font
 
 def hours_counter(weekly_schedule):
     wb = openpyxl.load_workbook(weekly_schedule)
@@ -36,5 +37,9 @@ def hours_counter(weekly_schedule):
             staff_initials.cell(row=rowNum, column=4).value = hours[enter]
         else:
             staff_initials.cell(row=rowNum, column=4).value= 0
+        
+    fontObj = Font(name="Calibri", size=11, bold=True)
+    staff_initials['D1'].font = fontObj
+    staff_initials['D1'] = 'Hours on desk this week'
 
     wb.save(weekly_schedule)
