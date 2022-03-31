@@ -8,15 +8,15 @@ The purpose of my project is to iterate over a range of cells that encompasses e
 
 **The three features included in my assignment are:**
 
-##### Category 1:
+### Category 1:
 
 **Create a disctionary or list, populate it with several values, retrieve at least one value, and use it in your program.**
 
-##### Category 2:
+### Category 2:
 
 **Read data from an external file, such as text, JSON, CSV, etc, and use that data in your application.**
 
-##### Category 3:
+### Category 3:
 
 **Display data in tabular form.**
 
